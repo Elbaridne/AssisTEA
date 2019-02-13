@@ -13,6 +13,7 @@ environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
+  flutter_dialogflow: ^0.1.0
   flutter:
     sdk: flutter
 
@@ -35,7 +36,10 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-
+  assets:
+      - assets/small_api_creds.json
+      - assets/logo7.png
+      - assets/placeholder.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #  - images/a_dot_burr.jpeg

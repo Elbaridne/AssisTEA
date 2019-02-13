@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
 
+import 'package:assistea/ava.dart';
+
 void main() => runApp(MyApp());
+
+const MaterialColor verde = const MaterialColor(
+  0x00CC83,
+  const <int, Color>{
+    50: const Color(0x35FFB7),
+    100: const Color(0x00FFA4),
+    200: const Color(0x007F52),
+    300: const Color(0x197F5B),
+    400: const Color(0x00CC83),
+    500: const Color(0x00CC83),
+    600: const Color(0x00CC83),
+    700: const Color(0x00CC83),
+    800: const Color(0x00CC83),
+    900: const Color(0x00CC83),
+  },
+);
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -8,10 +26,23 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'AssisTEA',
-      theme: ThemeData(
+        theme: ThemeData(
+          // Define the default Brightness and Colors
+          brightness: Brightness.light,
+          primaryColor: Colors.lightGreen[400],
+          accentColor: Colors.lightGreen[700],
 
-        primarySwatch: Colors.blue,
-      ),
+          // Define the default Font Family
+          fontFamily: 'Montserrat',
+
+          // Define the default TextTheme. Use this to specify the default
+          // text styling for headlines, titles, bodies of text, and more.
+          textTheme: TextTheme(
+            headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold, color: Colors.lightGreen[900]),
+            title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
+            body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+          ),
+        ),
       home: MyHomePage(title: 'AssisTEA'),
     );
   }
@@ -37,10 +68,10 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   final _widgetOptions = [
     Text('Index 0: Agenda'),
-    Text('Index 1: Asistente'),
+    Ava()
 
   ];
 
@@ -70,48 +101,20 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      resizeToAvoidBottomPadding: true,
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text("AssisTEA", style: TextStyle(color: Colors.lightGreen[900]), textAlign: TextAlign.center),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
-            ),
-          ],
-        ),
-      ),
+      body: _widgetOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.today), title: Text('Agenda')),
           BottomNavigationBarItem(icon: Icon(Icons.chat_bubble_outline), title: Text('Asistente')),
         ],
         currentIndex: _selectedIndex,
-        fixedColor: Colors.deepPurple,
+        fixedColor: Theme.of(context).accentColor,
         onTap: _onItemTapped,
       ),
       drawer: ListView(
@@ -123,11 +126,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ListTile(title: Text('Blabla3')),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
