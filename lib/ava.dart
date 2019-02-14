@@ -118,10 +118,10 @@ class _AvaState extends State<Ava> {
                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                    children: <Widget>[
 
-                                     ActionChip(backgroundColor: Colors.blue[50], label: Text("😄 Bien"), onPressed: () => _handleSubmit("Bien")),
-                                     ActionChip(backgroundColor: Colors.green[50], label: Text("👍 Si"), onPressed: () => _handleSubmit("Si")),
-                                     ActionChip(backgroundColor: Colors.grey[200], label: Text("😥 Mal"), onPressed: () => _handleSubmit("Mal")),
-                                     ActionChip(backgroundColor: Colors.red[50], label: Text("😰 Ayuda"), onPressed: () => _handleSubmit("Ayuda")),
+                                     ActionChip(backgroundColor: Colors.blue[50], label: Text("😄 Bien", style:Theme.of(context).textTheme.body1), onPressed: () => _handleSubmit("Bien")),
+                                     ActionChip(backgroundColor: Colors.green[50], label: Text("👍 Si", style:Theme.of(context).textTheme.body1), onPressed: () => _handleSubmit("Si")),
+                                     ActionChip(backgroundColor: Colors.grey[200], label: Text("😥 Mal", style:Theme.of(context).textTheme.body1), onPressed: () => _handleSubmit("Mal")),
+                                     ActionChip(backgroundColor: Colors.red[50], label: Text("😰 Ayuda", style:Theme.of(context).textTheme.body1), onPressed: () => _handleSubmit("Ayuda")),
 
 
 

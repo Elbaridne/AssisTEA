@@ -29,8 +29,8 @@ class MyApp extends StatelessWidget {
           textTheme: TextTheme(
             headline: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.lightGreen[900]),
             title: TextStyle(fontSize: 24.0, color: Colors.lightGreen[50]),
-            body1: TextStyle(fontSize: 16.0, fontFamily: 'Hind'),
-            body2: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white70)
+              body1: TextStyle(fontSize: 16.0, fontFamily: 'Hind'),
+              body2: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white70)
           ),
         ),
       home: MyHomePage(title: 'AssisTEA'),
@@ -109,14 +109,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Column(
                             children: <Widget>[
                               Row(mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[Text("Hola Mario, ¿Cómo te sientes hoy?")],),
+                              children: <Widget>[Text("Hola Mario, ¿Cómo te sientes hoy?", style:TextStyle(fontSize: 14.0, color: Colors.black54))],),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: <Widget>[
-                              ActionChip(backgroundColor: Colors.blue[50], label: Text("😄"), onPressed: () => null,),
-                              ActionChip(backgroundColor: Colors.green[50], label: Text("😊", ), onPressed: () => null),
-                              ActionChip(backgroundColor: Colors.orange[50], label: Text("😥"), onPressed: () => null),
-                              ActionChip(backgroundColor: Colors.grey[200], label: Text("😞"), onPressed: () => null),
+                              ActionChip(backgroundColor: Colors.blue[50], label: Text("😄",  style:TextStyle(fontSize: 16.0, color: Colors.black87)), onPressed: () => null,),
+                              ActionChip(backgroundColor: Colors.green[50], label: Text("😊", style:TextStyle(fontSize: 16.0, color: Colors.black87)), onPressed: () => null),
+                              ActionChip(backgroundColor: Colors.orange[50], label: Text("😥", style:TextStyle(fontSize: 16.0, color: Colors.black87)), onPressed: () => null),
+                              ActionChip(backgroundColor: Colors.grey[200], label: Text("😞", style:TextStyle(fontSize: 16.0, color: Colors.black87)), onPressed: () => null),
                                 ],
                               ),
                             ],
@@ -128,20 +128,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),),
               ),
 
-              ListTile(leading: const Icon(Icons.insert_drive_file), title: Text('Progreso')),
-              ListTile(leading: const Icon(Icons.videogame_asset), title: Text('Juegos')),
-              ListTile(leading: const Icon(Icons.insert_emoticon), title: Text('Medallas')),
-              ListTile(leading: const Icon(Icons.contacts), title: Text('Contactos')),
+              ListTile(leading: const Icon(Icons.insert_drive_file), title: Text('Progreso', style:TextStyle(fontSize: 16.0, color: Colors.black87))),
+              ListTile(leading: const Icon(Icons.videogame_asset), title: Text('Juegos', style:TextStyle(fontSize: 16.0, color: Colors.black87))),
+              ListTile(leading: const Icon(Icons.insert_emoticon), title: Text('Medallas', style:TextStyle(fontSize: 16.0, color: Colors.black87))),
+              ListTile(leading: const Icon(Icons.contacts), title: Text('Contactos', style:TextStyle(fontSize: 16.0, color: Colors.black87))),
               new Divider(
                 height: 16.0,
               ),
-              ListTile(leading: const Icon(Icons.help_outline), title: Text('Ayuda de la App')),
-              ListTile(leading: const Icon(Icons.settings), title: Text('Configuración')),
-              ListTile(leading: const Icon(Icons.info_outline), title: Text('Sobre AssisTEA')),
+              ListTile(leading: const Icon(Icons.help_outline), title: Text('Ayuda de la App', style:TextStyle(fontSize: 16.0, color: Colors.black87))),
+              ListTile(leading: const Icon(Icons.settings), title: Text('Configuración', style:TextStyle(fontSize: 16.0, color: Colors.black87))),
+              ListTile(leading: const Icon(Icons.info_outline), title: Text('Sobre AssisTEA', style:TextStyle(fontSize: 16.0, color: Colors.black87))),
               new Divider(
                 height: 32.0,
               ),
-              ListTile(title: Text("The Mighty Genius Team for UCLM")),
+              ListTile(title: Text("The Mighty Genius Team for UCLM", style:TextStyle(fontSize: 16.0, color: Colors.black87))),
             ],
           ),
         ),

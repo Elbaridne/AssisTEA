@@ -32,7 +32,7 @@ class _Agenda extends State<Agenda> {
     return Scaffold(
       backgroundColor: Colors.lightGreen[50],
       body:Padding(
-        padding: const EdgeInsets.fromLTRB(16.0,32.0,16.0,0),
+        padding: const EdgeInsets.fromLTRB(8.0,0,8.0,0),
         child: ListView(
           children: <Widget>[
             horario("Mañana 9:00 ",context),
