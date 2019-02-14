@@ -83,6 +83,7 @@ class _AvaState extends State<Ava> {
 
 
     return Scaffold(
+      backgroundColor: Color(0x0DD0FF),
         resizeToAvoidBottomPadding: false,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -111,27 +112,50 @@ class _AvaState extends State<Ava> {
                 child: new Container(
                 margin: const EdgeInsets.symmetric(horizontal:8.0),
 
-                             child: new Row(
+                             child: Column(
+                               children: <Widget>[
+                                 Row(
+                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                   children: <Widget>[
+
+                                     ActionChip(backgroundColor: Colors.blue[50], label: Text("😄 Bien"), onPressed: () => _handleSubmit("Bien")),
+                                     ActionChip(backgroundColor: Colors.green[50], label: Text("👍 Si"), onPressed: () => _handleSubmit("Si")),
+                                     ActionChip(backgroundColor: Colors.grey[200], label: Text("😥 Mal"), onPressed: () => _handleSubmit("Mal")),
+                                     ActionChip(backgroundColor: Colors.red[50], label: Text("😰 Ayuda"), onPressed: () => _handleSubmit("Ayuda")),
+
+
+
+                                   ],
+                                 ),
+
+                                 new Divider(
+                                   height: 1.0,
+                                 ),
+
+
+                                 new Row(
                             children: <Widget>[
-                              new Flexible(
-                                child: new TextField(
-                                  decoration: new InputDecoration.collapsed(hintText: "Habla con AVA ..."),
-                                  controller: _chatController,
-                                  onSubmitted: _handleSubmit,
-                                ),
-                              ),
-                              new Container(
-                                margin: const EdgeInsets.symmetric(horizontal: 4.0),
-                                child: new IconButton(
-                                  icon: new Icon(Icons.send),
-                                  color: Colors.lightBlue[400],
+                                  new Flexible(
+                                    child: new TextField(
+                                      decoration: new InputDecoration.collapsed(hintText: "Habla con AVA ..."),
+                                      controller: _chatController,
+                                      onSubmitted: _handleSubmit,
+                                    ),
+                                  ),
+                                  new Container(
+                                    margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                                    child: new IconButton(
+                                      icon: new Icon(Icons.send),
+                                      color: Colors.blue[200],
 
-                                  onPressed: ()=> _handleSubmit(_chatController.text),
+                                      onPressed: ()=> _handleSubmit(_chatController.text),
 
-                                ),
-                              )
+                                    ),
+                                  )
                             ],
                           ),
+                               ],
+                             ),
                   ),
                 ),
               ),

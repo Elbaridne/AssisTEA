@@ -28,7 +28,7 @@ class Bubble extends StatelessWidget {
       children: <Widget>[
         new CircleAvatar(child: new Image.asset(imagen), radius: 16.0, backgroundColor: Colors.white10),
         Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 3.0),
+          margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
           padding: const EdgeInsets.all(8.0),
           decoration: BoxDecoration(
             boxShadow: [

@@ -1,24 +1,13 @@
 import 'package:flutter/material.dart';
-
 import 'package:assistea/ava.dart';
+import 'package:assistea/agenda.dart';
+
+
+
 
 void main() => runApp(MyApp());
 
-const MaterialColor verde = const MaterialColor(
-  0x00CC83,
-  const <int, Color>{
-    50: const Color(0x35FFB7),
-    100: const Color(0x00FFA4),
-    200: const Color(0x007F52),
-    300: const Color(0x197F5B),
-    400: const Color(0x00CC83),
-    500: const Color(0x00CC83),
-    600: const Color(0x00CC83),
-    700: const Color(0x00CC83),
-    800: const Color(0x00CC83),
-    900: const Color(0x00CC83),
-  },
-);
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -38,9 +27,10 @@ class MyApp extends StatelessWidget {
           // Define the default TextTheme. Use this to specify the default
           // text styling for headlines, titles, bodies of text, and more.
           textTheme: TextTheme(
-            headline: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold, color: Colors.lightGreen[900]),
-            title: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
-            body1: TextStyle(fontSize: 14.0, fontFamily: 'Hind'),
+            headline: TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.lightGreen[900]),
+            title: TextStyle(fontSize: 24.0, color: Colors.lightGreen[50]),
+            body1: TextStyle(fontSize: 16.0, fontFamily: 'Hind'),
+            body2: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white70)
           ),
         ),
       home: MyHomePage(title: 'AssisTEA'),
@@ -50,16 +40,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -70,27 +50,18 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _selectedIndex = 0;
   final _widgetOptions = [
-    Text('Index 0: Agenda'),
-    Ava()
+    Agenda(),
+    Ava(),
+
 
   ];
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -101,11 +72,12 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+
       resizeToAvoidBottomPadding: true,
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text("AssisTEA", style: TextStyle(color: Colors.lightGreen[900]), textAlign: TextAlign.center),
+        title: Text("AssisTEA", style: Theme.of(context).textTheme.headline),
       ),
       body: _widgetOptions[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -117,14 +89,62 @@ class _MyHomePageState extends State<MyHomePage> {
         fixedColor: Theme.of(context).accentColor,
         onTap: _onItemTapped,
       ),
-      drawer: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          DrawerHeader(child: null),
-          ListTile(title: Text('Blabla')),
-          ListTile(title: Text('Blabla2')),
-          ListTile(title: Text('Blabla3')),
-        ],
+      drawer: Padding(
+        padding: const EdgeInsets.fromLTRB(0,0,96,0),
+        child: Container(
+
+          color: Colors.lightGreen[50],
+          child: ListView(
+
+
+            children: <Widget>[
+
+
+              Container(
+                height: 112.0,
+                child: DrawerHeader(child:
+
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Column(
+                            children: <Widget>[
+                              Row(mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[Text("Hola Mario, ¿Cómo te sientes hoy?")],),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                              ActionChip(backgroundColor: Colors.blue[50], label: Text("😄"), onPressed: () => null,),
+                              ActionChip(backgroundColor: Colors.green[50], label: Text("😊", ), onPressed: () => null),
+                              ActionChip(backgroundColor: Colors.orange[50], label: Text("😥"), onPressed: () => null),
+                              ActionChip(backgroundColor: Colors.grey[200], label: Text("😞"), onPressed: () => null),
+                                ],
+                              ),
+                            ],
+                          ),
+                      ),
+
+                  decoration: new BoxDecoration(
+                    color: Colors.lightGreen[100]
+                ),),
+              ),
+
+              ListTile(leading: const Icon(Icons.insert_drive_file), title: Text('Progreso')),
+              ListTile(leading: const Icon(Icons.videogame_asset), title: Text('Juegos')),
+              ListTile(leading: const Icon(Icons.insert_emoticon), title: Text('Medallas')),
+              ListTile(leading: const Icon(Icons.contacts), title: Text('Contactos')),
+              new Divider(
+                height: 16.0,
+              ),
+              ListTile(leading: const Icon(Icons.help_outline), title: Text('Ayuda de la App')),
+              ListTile(leading: const Icon(Icons.settings), title: Text('Configuración')),
+              ListTile(leading: const Icon(Icons.info_outline), title: Text('Sobre AssisTEA')),
+              new Divider(
+                height: 32.0,
+              ),
+              ListTile(title: Text("The Mighty Genius Team for UCLM")),
+            ],
+          ),
+        ),
       ),
       // This trailing comma makes auto-formatting nicer for build methods.
     );
